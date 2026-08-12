@@ -2,6 +2,7 @@ package mobile.eltd.android.tpagatest
 
 import android.app.Application
 import mobile.eltd.android.tpagatest.di.appModule
+import mobile.eltd.android.tpagatest.di.databaseModule
 import mobile.eltd.android.tpagatest.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,7 +15,7 @@ class TpagaApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@TpagaApplication)
-            modules(appModule, networkModule)
+            modules(appModule, networkModule, databaseModule)
         }
     }
 }

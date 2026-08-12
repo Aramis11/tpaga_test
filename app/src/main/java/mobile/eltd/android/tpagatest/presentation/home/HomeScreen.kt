@@ -15,14 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import mobile.eltd.android.tpagatest.R
 import mobile.eltd.android.tpagatest.presentation.dashboard.DashboardRoute
+import mobile.eltd.android.tpagatest.presentation.movements.MovementsRoute
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeRoute(
+    onMovementClick: (Int) -> Unit,
     viewModel: HomeViewModel = koinViewModel(),
 ) {
     HomeScreen(
         onLogout = { viewModel.onLogout() },
+        onMovementClick = onMovementClick,
     )
 }
 
@@ -30,6 +33,7 @@ fun HomeRoute(
 @Composable
 fun HomeScreen(
     onLogout: () -> Unit,
+    onMovementClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -54,6 +58,10 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxWidth(),
             )
             HorizontalDivider()
+            MovementsRoute(
+                onMovementClick = onMovementClick,
+                modifier = Modifier.weight(1f),
+            )
         }
     }
 }

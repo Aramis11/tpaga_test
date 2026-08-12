@@ -12,9 +12,21 @@
     <string name="home_title">Tpaga</string>
     <string name="home_logout">Cerrar sesión</string>
 
-    <string name="dashboard_balance_label">Saldo</string>
+    <string name="dashboard_balance_label">saldo</string>
     <string name="dashboard_retry">Reintentar</string>
     <string name="dashboard_empty">No hay datos disponibles</string>
     <string name="dashboard_error_network">Error de conexión. Verifica tu red e intenta de nuevo.</string>
     <string name="dashboard_error_generic">Ocurrió un error. Intenta de nuevo.</string>
+
+    <string name="filter_all">Todos</string>
+    <string name="filter_income">Ingresos</string>
+    <string name="filter_expense">Egresos</string>
+    <string name="movements_offline">Sin conexión, mostrando datos guardados</string>
+    <string name="movements_empty">No hay movimientos</string>
+
+    <string name="movement_detail_title">Detalle del movimiento...</string>
+    <string name="movement_detail_not_found">Movimiento no encontrado</string>
+    <string name="movement_type_income">Ingreso</string>
+    <string name="movement_type_expense">Egreso</string>
+    <string name="back">Volver</string>
 </resources>

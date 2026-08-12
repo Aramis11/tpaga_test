@@ -10,14 +10,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import mobile.eltd.android.tpagatest.core.Route
+import mobile.eltd.android.tpagatest.core.movementDetail
 import mobile.eltd.android.tpagatest.presentation.app.AppViewModel
 import mobile.eltd.android.tpagatest.presentation.app.AuthState
 import mobile.eltd.android.tpagatest.presentation.auth.login.LoginRoute
 import mobile.eltd.android.tpagatest.presentation.home.HomeRoute
+import mobile.eltd.android.tpagatest.presentation.movements.MovementDetailRoute
 
 @Composable
 fun TpagaRoot(appViewModel: AppViewModel) {
@@ -56,7 +60,21 @@ private fun AuthNavHost(authState: AuthState) {
             LoginRoute()
         }
         composable(Route.HOME.route) {
-            HomeRoute()
+            HomeRoute(
+                onMovementClick = { movementId ->
+                    navController.navigate(Route.MOVEMENT_DETAIL.movementDetail(movementId))
+                },
+            )
+        }
+        composable(
+            route = Route.MOVEMENT_DETAIL.route,
+            arguments = listOf(navArgument("movementId") { type = NavType.IntType }),
+        ) { backStackEntry ->
+            val movementId = backStackEntry.arguments?.getInt("movementId") ?: 0
+            MovementDetailRoute(
+                movementId = movementId,
+                onBack = { navController.popBackStack() },
+            )
         }
     }
 

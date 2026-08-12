@@ -11,4 +11,10 @@
 
     <string name="home_title">Tpaga</string>
     <string name="home_logout">Cerrar sesión</string>
+
+    <string name="dashboard_balance_label">Saldo</string>
+    <string name="dashboard_retry">Reintentar</string>
+    <string name="dashboard_empty">No hay datos disponibles</string>
+    <string name="dashboard_error_network">Error de conexión. Verifica tu red e intenta de nuevo.</string>
+    <string name="dashboard_error_generic">Ocurrió un error. Intenta de nuevo.</string>
 </resources>
